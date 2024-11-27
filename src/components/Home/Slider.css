@@ -1,0 +1,16 @@
+.slider-container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 800px;
+    position: relative;
+  }
+  
+  .slider-image {
+    width: 100%;
+    max-width: 800px;
+    height:10vh;
+    border-radius: 10px;
+    object-fit: cover;
+    background-position: cover;
+  }
+  
