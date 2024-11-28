@@ -1,21 +1,97 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import "./Contact.css";
 
-class Contact extends Component {
-  render() {
-    return (
-      <section id="contact" className="contact">
-        <h2>Contact</h2>
-        <p>Email: lokeshk80964@gmail.com</p>
-        <p>
-          LinkedIn: <a href="https://www.linkedin.com/in/krovvidi-lokesh-395210237">Profile</a>
-        </p>
-        <p>
-          GitHub: <a href="https://github.com/Lokesh8096">Lokesh8096</a>
-        </p>
-      </section>
-    );
-  }
-}
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    description: "",
+  });
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .send(
+        "service_agd47ny", // Replace with your EmailJS Service ID
+        "template_7pjnc4o", // Replace with your EmailJS Template ID
+        formData,
+        "ICsfRsvwBl0tdx0N1" // Replace with your EmailJS Public Key
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          setIsSubmitted(true);
+          setFormData({ name: "", email: "", description: "" }); // Reset the form
+        },
+        (err) => {
+          console.error("FAILED...", err);
+        }
+      );
+  };
+
+  return (
+    <section id="contact" className="contact-section">
+      <h2>Contact Me</h2>
+      {isSubmitted ? (
+        <p className="success-message">Thank you! Your message has been sent.</p>
+      ) : (
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="description">Message</label>
+            <textarea
+              id="description"
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+              placeholder="Enter your message"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" className="btn">Submit</button>
+        </form>
+      )}
+    </section>
+  );
+};
 
 export default Contact;
+
+
+
+

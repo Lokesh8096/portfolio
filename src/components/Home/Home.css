@@ -68,3 +68,19 @@
   background: #3b82f6;
   color: white;
 }
+.btn-hire{
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: #61dafb;
+  color: #1f2937;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease; 
+  margin-left: 2rem;
+}
+.btn-hire:hover {
+  background: #3b82f6;
+  color: white;
+}

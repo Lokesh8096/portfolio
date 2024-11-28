@@ -37,7 +37,9 @@ class Home extends Component {
           <p>
             Hi, I'm Lokesh, a passionate web developer with expertise in React, Python, and modern technologies.
           </p>
+          
           <a href="#about" className="btn">Learn More About Me</a>
+          <a href="#contact" className="btn-hire">Hire Me</a>
         </div>
       </section>
     );
