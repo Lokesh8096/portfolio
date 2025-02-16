@@ -7,7 +7,7 @@ class Projects extends Component {
       {
         name: "Portfolio Website",
         description: "A personal portfolio built with React.js.",
-        gitLink: "https://github.com/yourusername/portfolio",
+        gitLink: "https://github.com/Lokesh8096/portfolio",
       },
       {
         name: "LogInPage",
