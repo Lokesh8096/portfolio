@@ -24,16 +24,16 @@ const Contact = () => {
 
     emailjs
       .send(
-        "service_agd47ny", // Replace with your EmailJS Service ID
-        "template_7pjnc4o", // Replace with your EmailJS Template ID
+        "service_agd47ny", 
+        "template_7pjnc4o", 
         formData,
-        "ICsfRsvwBl0tdx0N1" // Replace with your EmailJS Public Key
+        "ICsfRsvwBl0tdx0N1" 
       )
       .then(
         (response) => {
           console.log("SUCCESS!", response.status, response.text);
           setIsSubmitted(true);
-          setFormData({ name: "", email: "", description: "" }); // Reset the form
+          setFormData({ name: "", email: "", description: "" }); 
         },
         (err) => {
           console.error("FAILED...", err);
