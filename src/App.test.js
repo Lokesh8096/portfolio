@@ -1,8 +1,11 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+test("renders Lokesh portfolio hero statement", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const heroHeading = screen.getByRole("heading", {
+    name: /i build intelligent systems that reduce manual effort through automation and ai/i,
+  });
+
+  expect(heroHeading).toBeInTheDocument();
 });
